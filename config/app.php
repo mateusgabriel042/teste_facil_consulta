@@ -1,5 +1,7 @@
 <?php
 
+use Carbon\Laravel\ServiceProvider;
+
 return [
 
     /*
@@ -122,5 +124,12 @@ return [
         'driver' => env('APP_MAINTENANCE_DRIVER', 'file'),
         'store' => env('APP_MAINTENANCE_STORE', 'database'),
     ],
+
+    'providers' => ServiceProvider::defaultProviders()->merge([
+        App\Providers\AppServiceProvider::class,
+        App\Providers\RouteServiceProvider::class,
+        Prettus\Repository\Providers\RepositoryServiceProvider::class,
+        App\Providers\RepositoryServiceProvider::class,
+    ])->toArray(),
 
 ];
