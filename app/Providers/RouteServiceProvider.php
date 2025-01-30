@@ -27,6 +27,10 @@ class RouteServiceProvider extends ServiceProvider
     {
         RateLimiter::for('auth', RateLimitUtil::rateLimit(5, 5));
         RateLimiter::for('user', RateLimitUtil::rateLimit(60, 20));
+        RateLimiter::for('city', RateLimitUtil::rateLimit(60, 20));
+        RateLimiter::for('doctor', RateLimitUtil::rateLimit(60, 20));
+        RateLimiter::for('patient', RateLimitUtil::rateLimit(60, 20));
+        RateLimiter::for('consultation', RateLimitUtil::rateLimit(60, 20));
 
         $this->routes(function () {
             Route::middleware('api')
